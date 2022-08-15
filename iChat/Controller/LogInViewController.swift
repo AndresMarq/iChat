@@ -96,7 +96,7 @@ class LogInViewController: UIViewController {
         // Add password text field
         passwordTextField.frame = CGRect(
             x: view.width * 0.1,
-            y: emailTextField.bottom + 30,
+            y: emailTextField.bottom + 20,
             width: view.width * 0.8,
             height: 50
         )
@@ -106,7 +106,7 @@ class LogInViewController: UIViewController {
         // Add Log In Button
         logInButton.frame = CGRect(
             x: (view.width / 2) - (view.width * 0.125),
-            y: passwordTextField.bottom + 30,
+            y: passwordTextField.bottom + 20,
             width: view.width * 0.25,
             height: 50
         )
@@ -115,7 +115,7 @@ class LogInViewController: UIViewController {
         // Add register label and button
         registerLabel.frame = CGRect(
             x: view.width * 0.1,
-            y: logInButton.bottom + 30,
+            y: logInButton.bottom + 20,
             width: view.width * 0.45,
             height: 30
         )
@@ -123,7 +123,7 @@ class LogInViewController: UIViewController {
         
         registerButton.frame = CGRect(
             x: registerLabel.right,
-            y: logInButton.bottom + 30,
+            y: logInButton.bottom + 20,
             width: view.width * 0.2,
             height: 30
         )

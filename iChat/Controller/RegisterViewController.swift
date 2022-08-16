@@ -8,6 +8,16 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    
+    private let userImageButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "person.circle"), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(tappedChangePic), for: .touchUpInside)
+        return button
+    }()
 
     private let firstNameTextField: UITextField = {
         let field = UITextField()
@@ -85,21 +95,21 @@ class RegisterViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // Add iChat Icon on top of view
+        // Add empty person button on top of view
         let size = view.width / 3
-        let imageFrame = CGRect(
-            x: view.width / 2 - size,
-            y: 30,
+        userImageButton.frame = CGRect(
+            x: (view.width - size) / 2,
+            y: 100,
             width: size,
             height: size
         )
-        let imageView = ImageView(frame: imageFrame)
-        view.addSubview(imageView)
+        userImageButton.layer.cornerRadius = userImageButton.width / 2
+        view.addSubview(userImageButton)
         
         // Add first and last name
         firstNameTextField.frame = CGRect(
             x: view.width * 0.1,
-            y: imageView.bottom + 100,
+            y: userImageButton.bottom + 30,
             width: view.width * 0.8,
             height: 50
         )
@@ -151,6 +161,8 @@ class RegisterViewController: UIViewController {
                 let lastName = lastNameTextField.text,
                 let email = emailTextField.text,
                 let password = passwordTextField.text,
+                !firstName.isEmpty,
+              !lastName.isEmpty,
                 !email.isEmpty,
                 !password.isEmpty else {
             self.view.endEditing(true)
@@ -168,7 +180,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func tappedChangePic() {
-        
+        showPictureActionSheet()
     }
 }
 
@@ -185,5 +197,51 @@ extension RegisterViewController: UITextFieldDelegate {
             registerButtonTapped()
         }
         return true
+    }
+}
+
+// Get results from user taking picture or selecting photo from library
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showPictureActionSheet() {
+        let sheet = UIAlertController(title: "Select Profile Picture", message: "Preferred method", preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
+            self?.useCamera()
+        }))
+        sheet.addAction(UIAlertAction(title: "Library", style: .default, handler: { [weak self] _ in
+            self?.useLibrary()
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(sheet, animated: true)
+    }
+    
+    func useCamera() {
+        let controller = UIImagePickerController()
+        controller.sourceType = .camera
+        controller.delegate = self
+        controller.allowsEditing = true
+        present(controller, animated: true)
+    }
+    
+    func useLibrary() {
+        let controller = UIImagePickerController()
+        controller.sourceType = .photoLibrary
+        controller.delegate = self
+        controller.allowsEditing = true
+        present(controller, animated: true)
+    }
+    
+    // Called when user takes or select photo
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        self.userImageButton.setImage(image, for: .normal)
+    }
+    
+    // Called when cancel taking picture or photo selection
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
     }
 }

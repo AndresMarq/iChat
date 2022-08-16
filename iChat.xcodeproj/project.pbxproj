@@ -338,6 +338,8 @@
 				DEVELOPMENT_TEAM = CX384TT6P4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iChat/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to take a profile picture photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Required to select profile picture from library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -368,6 +370,8 @@
 				DEVELOPMENT_TEAM = CX384TT6P4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iChat/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to take a profile picture photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Required to select profile picture from library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

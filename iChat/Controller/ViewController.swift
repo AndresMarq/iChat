@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -15,16 +16,15 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        let userIsLoggedIn = UserDefaults.standard.bool(forKey: "loggedIn")
-        
-        if !userIsLoggedIn {
+        checkAuthentification()
+    }
+    
+    func checkAuthentification() {
+        if FirebaseAuth.Auth.auth().currentUser == nil {
             let viewController = LogInViewController()
             let navigation = UINavigationController(rootViewController: viewController)
-            //navigation.modalPresentationStyle = .fullScreen
-            present(navigation, animated: true)
+            present (navigation, animated: false)
         }
     }
-
 }
 

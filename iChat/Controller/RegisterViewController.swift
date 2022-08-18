@@ -167,23 +167,32 @@ class RegisterViewController: UIViewController {
                 !email.isEmpty,
                 !password.isEmpty else {
             self.view.endEditing(true)
-            logInError()
+            registrationError()
             return
         }
         
         // Firebase create user
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
-            guard let authResult = result, error == nil else {
-                // handle
+        DatabaseController.shared.userExists(email: email, completion: { [weak self] exists in
+            if exists {
+                self?.registrationError(message: "Email address already being used")
+                return
+            }
+        })
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
+            guard result != nil, error == nil else {
+                self?.registrationError(message: "Could not connect with database, please try again later")
                 return
             }
             
-            // Do something with result
+            DatabaseController.shared.addUser(user: User(firstName: firstName, lastName: lastName, email: email))
+            
+            self?.navigationController?.dismiss(animated: true)
         })
     }
     
-    private func logInError() {
-        let ac = UIAlertController(title: "Error", message: "All fields are required to register", preferredStyle: .alert)
+    private func registrationError(message: String = "All fields are required to register") {
+        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(ac, animated: true)
     }

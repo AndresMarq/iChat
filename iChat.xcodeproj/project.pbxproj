@@ -18,6 +18,7 @@
 		92518C9228ADC5F700DB4ECC /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92518C9128ADC5F700DB4ECC /* DatabaseController.swift */; };
 		92518C9428ADD21A00DB4ECC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92518C9328ADD21A00DB4ECC /* User.swift */; };
 		925A5AF728AC895F005FCDE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 925A5AF628AC895F005FCDE3 /* GoogleService-Info.plist */; };
+		928ACA1528B20548003F4376 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928ACA1428B20548003F4376 /* SettingsViewController.swift */; };
 		92BEEB2128A8A7920043F31B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BEEB2028A8A7920043F31B /* RegisterViewController.swift */; };
 		92FEA4A028A47A8200E4B4B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA49F28A47A8200E4B4B1 /* Extensions.swift */; };
 		92FEA4A428A481AE00E4B4B1 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FEA4A328A481AE00E4B4B1 /* ImageView.swift */; };
@@ -38,6 +39,7 @@
 		92518C9128ADC5F700DB4ECC /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		92518C9328ADD21A00DB4ECC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		925A5AF628AC895F005FCDE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		928ACA1428B20548003F4376 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		92BEEB2028A8A7920043F31B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92FEA49F28A47A8200E4B4B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		92FEA4A328A481AE00E4B4B1 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				923BA34828A457190005251F /* LogInViewController.swift */,
 				92BEEB2028A8A7920043F31B /* RegisterViewController.swift */,
 				92518C9128ADC5F700DB4ECC /* DatabaseController.swift */,
+				928ACA1428B20548003F4376 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				92FEA4A428A481AE00E4B4B1 /* ImageView.swift in Sources */,
 				92FEA4A028A47A8200E4B4B1 /* Extensions.swift in Sources */,
 				92BEEB2128A8A7920043F31B /* RegisterViewController.swift in Sources */,
+				928ACA1528B20548003F4376 /* SettingsViewController.swift in Sources */,
 				923BA34928A457190005251F /* LogInViewController.swift in Sources */,
 				92518C9228ADC5F700DB4ECC /* DatabaseController.swift in Sources */,
 				92518C9428ADD21A00DB4ECC /* User.swift in Sources */,

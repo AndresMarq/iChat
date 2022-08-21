@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         if FirebaseAuth.Auth.auth().currentUser == nil {
             let viewController = LogInViewController()
             let navigation = UINavigationController(rootViewController: viewController)
+            navigation.modalPresentationStyle = .fullScreen
             present (navigation, animated: false)
         }
     }
